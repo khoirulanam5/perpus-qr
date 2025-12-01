@@ -35,7 +35,7 @@
             <p class="fw-semibold text-dark fs-4 col-6">Data Presensi</p>
         </div>
 
-        <?php if (session()->get('user_role') == 'admin') { ?>
+        <?php if (session()->get('user_role') == 'pustakawan') { ?>
             <div class="mb-4">
                 <form method="POST" action="<?= base_url('presensi') ?>" class="row g-2 align-items-end">
                     <?= csrf_field(); ?>

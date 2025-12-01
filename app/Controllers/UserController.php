@@ -20,7 +20,7 @@ class UserController extends BaseController
     public function index()
     {
         return view('admin\user\index', [
-            'title' => 'Data Admin',
+            'title' => 'Data User',
             'users' => $this->userModel->findAll()
         ]);
     }
@@ -28,7 +28,7 @@ class UserController extends BaseController
     public function create()
     {
         return view('admin\user\create', [
-            'title' => 'Data Admin'
+            'title' => 'Data User'
         ]);
     }
 
@@ -45,6 +45,19 @@ class UserController extends BaseController
                     'min_length'  => '{field} minimal harus 3 karakter.',
                 ]
             ],
+
+
+            // kolom dibawah contoh crud tambah nomor telepon
+            // 'no_hp' => [
+            //     'label' => 'Nomor telepon',
+            //     'rules' => 'required|min_length[3]',
+            //     'errors' => [
+            //         'required'    => '{field} wajib diisi.',
+            //         'min_length'  => '{field} minimal harus 3 karakter.',
+            //     ]
+            // ],
+
+
             'username' => [
                 'label' => 'Username',
                 'rules' => 'required|min_length[3]|is_unique[users.username]',
@@ -81,13 +94,16 @@ class UserController extends BaseController
             return redirect()->to('user/create')->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $password = $this->request->getPost('password');
-        $hashPass = password_hash($password, PASSWORD_BCRYPT);
-
         $data = [
             'nama' => $this->request->getPost('nama'),
+
+
+            // kolom dibawah contoh crud tambah nomor telepon
+            // 'no_hp' => $this->request->getPost('no_hp'),
+
+
             'username' => $this->request->getPost('username'),
-            'password' => $hashPass,
+            'password' => $this->request->getPost('password'),
             'role' => $this->request->getPost('role'),
             'aktif' => $this->request->getPost('aktif'),
         ];
@@ -98,7 +114,7 @@ class UserController extends BaseController
     public function edit($id)
     {
         return view('admin\user\edit', [
-            'title' => 'Data Admin',
+            'title' => 'Data User',
             'user' => $this->userModel->find($id)
         ]);
     }
@@ -117,6 +133,19 @@ class UserController extends BaseController
                     'min_length'  => '{field} minimal harus 3 karakter.',
                 ]
             ],
+
+
+            // kolom dibawah contoh crud tambah nomor telepon
+            // 'no_hp' => [
+            //     'label' => 'Nomor telepon',
+            //     'rules' => 'required|min_length[3]',
+            //     'errors' => [
+            //         'required'    => '{field} wajib diisi.',
+            //         'min_length'  => '{field} minimal harus 3 karakter.',
+            //     ]
+            // ],
+
+
             'username' => [
                 'label' => 'Username',
                 'rules' => "required|min_length[3]|is_unique[users.username,id,{$id}]",
@@ -158,13 +187,16 @@ class UserController extends BaseController
 
         $data = [
             'nama' => $this->request->getPost('nama'),
+
+
+            // kolom dibawah contoh crud tambah nomor telepon
+            // 'no_hp' => $this->request->getPost('no_hp'),
+
+
             'username' => $this->request->getPost('username'),
             'role' => $this->request->getPost('role'),
             'aktif' => $this->request->getPost('aktif'),
         ];
-        if (!empty($password) && strlen($password) >= 3) {
-            $data['password'] = password_hash($password, PASSWORD_BCRYPT); // hash password baru
-        }
         $this->userModel->update($id, $data);
 
         return redirect()->to('user')->with('success', 'Data berhasil disimpan.');

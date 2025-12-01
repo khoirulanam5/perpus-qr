@@ -26,7 +26,7 @@ class AuthController extends BaseController
         $user = $model->where('username', $username)->first();
 
         if ($user) {
-            if (password_verify($password, $user->password)) {
+            if ($password == $user->password) {
                 $session->set([
                     'user_id' => $user->id,
                     'user_name' => $user->nama,

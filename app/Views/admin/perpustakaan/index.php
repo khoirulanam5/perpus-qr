@@ -27,7 +27,7 @@
                 <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
                     style="font-weight: 600; font-size: 14px" for="nama">Nama <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="text" name="nama" id="nama" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>
+                    <input type="text" name="nama" id="nama" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>
                         class="form-control text-dark <?= session('errors.nama') ? 'is-invalid' : '' ?>"
                         value="<?= old('nama', $perpustakaan->nama) ?>"
                         placeholder="Masukkan nama perpustakaan" required autofocus>
@@ -42,7 +42,7 @@
                 <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
                     style="font-weight: 600; font-size: 14px" for="alamat">Alamat <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <textarea name="alamat" id="alamat" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>
+                    <textarea name="alamat" id="alamat" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>
                         class="form-control text-dark <?= session('errors.alamat') ? 'is-invalid' : '' ?>"
                         placeholder="Masukkan alamat"><?= old('alamat', $perpustakaan->alamat) ?></textarea>
                     <?php if (session('errors.alamat')) : ?>
@@ -59,7 +59,7 @@
                     <input type="text" name="kontak" id="kontak"
                         class="form-control text-dark <?= session('errors.kontak') ? 'is-invalid' : '' ?>"
                         value="<?= old('kontak', $perpustakaan->kontak) ?>"
-                        placeholder="Masukkan kontak" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>>
+                        placeholder="Masukkan kontak" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>>
                     <?php if (session('errors.kontak')) : ?>
                         <div class="invalid-feedback"><?= session('errors.kontak') ?></div>
                     <?php endif ?>
@@ -74,7 +74,7 @@
                     <input type="text" name="kepala" id="kepala"
                         class="form-control text-dark <?= session('errors.kepala') ? 'is-invalid' : '' ?>"
                         value="<?= old('kepala', $perpustakaan->kepala) ?>"
-                        placeholder="Masukkan nama kepala perpustakaan" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>>
+                        placeholder="Masukkan nama kepala perpustakaan" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>>
                     <?php if (session('errors.kepala')) : ?>
                         <div class="invalid-feedback"><?= session('errors.kepala') ?></div>
                     <?php endif ?>
@@ -83,8 +83,8 @@
 
             <!-- Tombol -->
             <div class="d-flex mt-4 gap-2">
-                <button type="submit" class="btn btn-primary fw-bold" style="width: 25%" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>>Update</button>
-                <button type="reset" class="btn btn-outline-secondary text-dark" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>>Reset</button>
+                <button type="submit" class="btn btn-primary fw-bold" style="width: 25%" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>>Update</button>
+                <button type="reset" class="btn btn-outline-secondary text-dark" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>>Reset</button>
             </div>
         </form>
 

@@ -16,7 +16,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <p class="fw-semibold text-dark fs-4 col-6">Data Rak</p>
-            <?php if (session()->get('user_role') == 'admin') { ?>
+            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                 <a href="<?= base_url('rak/create') ?>" class="btn btn-primary fw-semibold col-lg-2 col-4">Tambah</a>
             <?php } ?>
         </div>
@@ -28,7 +28,7 @@
                         <th class="text-white" width="5%">No</th>
                         <th class="text-white" width="15%">Kode Rak</th>
                         <th class="text-white" width="40%">Nama Rak</th>
-                        <?php if (session()->get('user_role') == 'admin') { ?>
+                        <?php if (session()->get('user_role') == 'pustakawan') { ?>
                             <th class="text-white" width="20%">Aksi</th>
                         <?php } ?>
                     </tr>
@@ -40,7 +40,7 @@
                             <td class="text-center"><?= $no++ ?></td>
                             <td><?= esc($data->kode_rak) ?></td>
                             <td><?= esc($data->nama_rak) ?></td>
-                            <?php if (session()->get('user_role') == 'admin') { ?>
+                            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                                 <td class="d-flex gap-1">
                                     <a href="<?= base_url('rak/edit/' . $data->id) ?>" class="btn btn-info btn-sm">
                                         <i class="bx bx-pencil" style="font-size: 1rem"></i>

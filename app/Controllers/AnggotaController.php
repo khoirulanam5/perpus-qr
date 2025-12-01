@@ -219,12 +219,12 @@ class AnggotaController extends BaseController
             $ext = $file->getExtension();
             $namaFile = $anggota->kode_anggota . '.' . $ext;
             $file->move('images/anggota/', $namaFile);
-        }
+        
 
         $this->anggotaModel->update($id, [
             'foto' => $namaFile
         ]);
-
+        }
         return redirect()->to('/anggota')->with('success', 'Data berhasil diperbarui.');
     }
 

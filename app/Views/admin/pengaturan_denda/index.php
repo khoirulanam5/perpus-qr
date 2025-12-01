@@ -27,7 +27,7 @@
                 <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
                     style="font-weight: 600; font-size: 14px" for="denda_per_hari">Denda Per Hari (Rp) <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="number" name="denda_per_hari" id="denda_per_hari" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>
+                    <input type="number" name="denda_per_hari" id="denda_per_hari" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>
                         class="form-control text-dark <?= session('errors.denda_per_hari') ? 'is-invalid' : '' ?>"
                         value="<?= old('denda_per_hari', $pengaturanDenda->denda_per_hari) ?>"
                         placeholder="Masukkan nominal denda per hari" required autofocus>
@@ -41,7 +41,7 @@
                 <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
                     style="font-weight: 600; font-size: 14px" for="denda_buku_hilang">Denda Buku Hilang (RP) <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="number" name="denda_buku_hilang" id="denda_buku_hilang" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>
+                    <input type="number" name="denda_buku_hilang" id="denda_buku_hilang" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>
                         class="form-control text-dark <?= session('errors.denda_buku_hilang') ? 'is-invalid' : '' ?>"
                         value="<?= old('denda_buku_hilang', $pengaturanDenda->denda_buku_hilang) ?>"
                         placeholder="Masukkan nominal denda buku hilang" required>
@@ -55,7 +55,7 @@
                 <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
                     style="font-weight: 600; font-size: 14px" for="maksimal_telat">Maksimal Telat (Hari) <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="number" name="maksimal_telat" id="maksimal_telat" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>
+                    <input type="number" name="maksimal_telat" id="maksimal_telat" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>
                         class="form-control text-dark <?= session('errors.maksimal_telat') ? 'is-invalid' : '' ?>"
                         value="<?= old('maksimal_telat', $pengaturanDenda->maksimal_telat) ?>"
                         placeholder="Masukkan maksimal telat" required>
@@ -70,7 +70,7 @@
                     Tipe Denda Telat <span class="text-danger">*</span>
                 </label>
                 <div class="col-sm-10">
-                    <select id="tipe_telat" name="tipe_telat" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>
+                    <select id="tipe_telat" name="tipe_telat" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>
                         class="select2  form-control text-dark <?= session('errors.tipe_telat') ? 'is-invalid' : '' ?>"
                         required>
                         <option value="Per Buku" <?= old('tipe_telat', $pengaturanDenda->tipe_telat) == 'Per Buku'  ? 'selected' : ''; ?>>Per Buku</option>
@@ -84,8 +84,8 @@
 
             <!-- Tombol -->
             <div class="d-flex mt-4 gap-2">
-                <button type="submit" class="btn btn-primary fw-bold" style="width: 25%" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>>Update</button>
-                <button type="reset" class="btn btn-outline-secondary text-dark" <?= session()->get('user_role') == 'admin' ? '' : ('disabled'); ?>>Reset</button>
+                <button type="submit" class="btn btn-primary fw-bold" style="width: 25%" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>>Update</button>
+                <button type="reset" class="btn btn-outline-secondary text-dark" <?= session()->get('user_role') == 'pustakawan' ? '' : ('disabled'); ?>>Reset</button>
             </div>
         </form>
 

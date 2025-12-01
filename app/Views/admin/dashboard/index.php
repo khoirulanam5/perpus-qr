@@ -56,7 +56,7 @@
 
                             </div>
                             <span class="fw-semibold d-block mb-1">Buku</span>
-                            <h3 class="card-title mb-2 text-dark">1</h3>
+                            <h3 class="card-title mb-2 text-dark"><?=$buku;?></h3>
 
                         </div>
                     </div>

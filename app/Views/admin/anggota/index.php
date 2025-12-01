@@ -16,7 +16,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <p class="fw-semibold text-dark fs-4 col-6">Data Anggota</p>
-            <?php if (session()->get('user_role') == 'admin') { ?>
+            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                 <a href="<?= base_url('anggota/create') ?>" class="btn btn-primary fw-semibold col-lg-2 col-4">Tambah</a>
             <?php } ?>
         </div>
@@ -33,7 +33,7 @@
                         <th class=" text-white">Alamat</th>
                         <th class=" text-white">Status</th>
                         <th class=" text-white">Tgl Daftar</th>
-                        <?php if (session()->get('user_role') == 'admin') { ?>
+                        <?php if (session()->get('user_role') == 'pustakawan') { ?>
                             <th class="text-white" width="15%">Aksi</th>
                         <?php } ?>
                     </tr>
@@ -64,7 +64,7 @@
                                 <span class="badge bg-<?= $badgeClass ?>"><?= ucfirst($status) ?></span>
                             </td>
                             <td><?= formatTanggalIndo($data->tanggal_daftar) ?></td>
-                            <?php if (session()->get('user_role') == 'admin') { ?>
+                            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                                 <td>
                                     <div class=" d-flex gap-1">
                                         <a href="<?= base_url('anggota/edit/' . $data->id) ?>" class="btn btn-info btn-sm">

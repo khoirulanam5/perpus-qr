@@ -16,7 +16,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <p class="fw-semibold text-dark fs-4 col-6">Data Buku</p>
-            <?php if (session()->get('user_role') == 'admin') { ?>
+            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                 <a href="<?= base_url('buku_keluar/create') ?>" class="btn btn-primary fw-semibold col-lg-2 col-4">Tambah</a>
             <?php } ?>
         </div>
@@ -33,7 +33,7 @@
                         <th class=" text-white">Tanggal</th>
                         <th class=" text-white">Jenis</th>
                         <th class=" text-white">Ket.</th>
-                        <?php if (session()->get('user_role') == 'admin') { ?>
+                        <?php if (session()->get('user_role') == 'pustakawan') { ?>
                             <th class="text-white" width="15%">Aksi</th>
                         <?php } ?>
 
@@ -54,7 +54,7 @@
                             <td><?= formatTanggalIndo($data->tanggal_keluar) ?></td>
                             <td><?= esc($data->jenis_keluar) ?></td>
                             <td><?= esc($data->keterangan ?? "-") ?></td>
-                            <?php if (session()->get('user_role') == 'admin') { ?>
+                            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                                 <td>
                                     <div class=" d-flex gap-1">
                                         <a href="<?= base_url('buku_keluar/edit/' . $data->id) ?>" class="btn btn-info btn-sm">

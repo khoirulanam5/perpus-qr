@@ -51,7 +51,7 @@ function hitungSelisihHariDenda(string $tanggalDue, string $tanggalDenda): int
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <p class="fw-semibold text-dark fs-4 col-6">Data Peminjaman</p>
-            <?php if (session()->get('user_role') == 'admin') { ?>
+            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                 <a href="<?= base_url('peminjaman/create') ?>" class="btn btn-primary fw-semibold col-lg-2 col-4">Tambah</a>
             <?php } ?>
         </div>
@@ -70,7 +70,7 @@ function hitungSelisihHariDenda(string $tanggalDue, string $tanggalDenda): int
                         <th class="text-white">Tgl Kembali</th>
                         <th class="text-white">Denda</th>
                         <th class="text-white">Status</th>
-                        <?php if (session()->get('user_role') == 'admin') { ?>
+                        <?php if (session()->get('user_role') == 'pustakawan') { ?>
                             <th class="text-white" width="10%">Aksi</th>
                         <?php } ?>
                     </tr>
@@ -142,7 +142,7 @@ function hitungSelisihHariDenda(string $tanggalDue, string $tanggalDenda): int
                                 ?>
                                 <span class="badge bg-<?= $badgeClass ?>"><?= ucfirst($data->status) ?></span>
                             </td>
-                            <?php if (session()->get('user_role') == 'admin') { ?>
+                            <?php if (session()->get('user_role') == 'pustakawan') { ?>
                                 <td>
                                     <div class="d-block">
                                         <div class="d-flex gap-1">

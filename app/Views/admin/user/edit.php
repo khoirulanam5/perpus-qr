@@ -4,7 +4,7 @@
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb fw-semibold fs-5 text-white">
         <li class="breadcrumb-item">
-            <a href="<?= base_url('/user') ?>" class="text-white text-decoration-none">Data Admin</a>
+            <a href="<?= base_url('/user') ?>" class="text-white text-decoration-none">Data User</a>
         </li>
         <li class="breadcrumb-item active text-white" aria-current="page">Edit</li>
     </ol>
@@ -14,7 +14,7 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h5 class="fw-semibold text-dark text-uppercase mb-0">Edit Admin</h5>
+                <h5 class="fw-semibold text-dark text-uppercase mb-0">Edit User</h5>
             </div>
             <div>
                 <a href="<?= base_url('user') ?>" class="btn btn-secondary">
@@ -40,6 +40,24 @@
                     <?php endif ?>
                 </div>
             </div>
+
+
+            <!-- kolom dibawah contoh crud tambah nomor telepon -->
+            <!-- <div class="form-group row mb-3">
+                <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
+                    style="font-weight: 600; font-size: 14px" for="no_hp">Telepon <span class="text-danger">*</span></label>
+                <div class="col-sm-10">
+                    <input type="text" name="no_hp" id="no_hp"
+                        class="form-control text-dark <?= session('errors.no_hp') ? 'is-invalid' : '' ?>"
+                        value="<?= old('no_hp', $user->no_hp) ?>"
+                        placeholder="Masukkan nomor telepon " required autofocus>
+                    <?php if (session('errors.no_hp')) : ?>
+                        <div class="invalid-feedback"><?= session('errors.no_hp') ?></div>
+                    <?php endif ?>
+                </div>
+            </div> -->
+
+
             <div class="form-group row mb-3">
                 <label class="control-label col-sm-2 align-self-center mb-0 text-uppercase text-dark"
                     style="font-weight: 600; font-size: 14px" for="username">Username <span class="text-danger">*</span></label>
@@ -94,8 +112,8 @@
                         class="select2 form-control text-dark <?= session('errors.role') ? 'is-invalid' : '' ?>"
                         required>
                         <option value="">Pilih Status</option>
-                        <option value="admin" <?= old('role', $user->role) == "admin" ? 'selected' : ''; ?>>Admin</option>
                         <option value="kepala" <?= old('role', $user->role) == "kepala" ? 'selected' : ''; ?>>Kepala</option>
+                        <option value="pustakawan" <?= old('role', $user->role) == "pustakawan" ? 'selected' : ''; ?>>Pustakawan</option>
                     </select>
                     <?php if (session('errors.role')) : ?>
                         <div class="invalid-feedback"><?= session('errors.role') ?></div>
